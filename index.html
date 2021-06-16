@@ -2,672 +2,195 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 
-
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    html,
-    body {
-        margin: 0 auto;
-        padding: 0;
-        background: #fafafa;
-    }
-
-    .barra-menu-topo {
-        background: #ffffff;
-        height: 54px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px 292px;
-        border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 3;
-        transition: height 0.2s ease-in-out;
-    }
-
-    .esquerda,
-    .meio,
-    .direita {
-        display: flex;
-        align-items: center;
-    }
-
-    .barra-menu-topo>.esquerda>.instagram {
-        color: #00376b;
-        margin-right: 100px;
-    }
-
-    .barra-menu-topo>.esquerda>img {
-        width: 103px;
-        height: 39px;
-        margin-top: 7px;
-        margin-right: 80px;
-    }
-
-    .barra-menu-topo>.meio>input {
-        font-size: 16px;
-        height: 28px;
-        border-radius: 3px;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-            Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        text-align: center;
-        border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-        background: #fafafa;
-        padding: 3px 10px 3px 26px;
-    }
-
-    .barra-menu-topo>.direita>.homepage {
-        display: block;
-    }
-
-    .barra-menu-topo>.direita>.inbox {
-        margin-left: 22px;
-    }
-
-    .barra-menu-topo>.direita>.findpeople {
-        margin-left: 22px;
-    }
-
-    .barra-menu-topo>.direita>.activityfeed {
-        margin-left: 22px;
-    }
-
-    .barra-menu-topo>.direita>.avatar-neto112 {
-        margin-left: 22px;
-        border-radius: 50px;
-        width: 22px;
-        height: 22px;
-    }
-
-    .conteudo {
-        display: flex;
-        justify-content: center;
-        flex: 1;
-        padding: 0 292px;
-        padding-top: 84px;
-    }
-
-    .left {
-        float: left;
-        max-width: 614px;
-        width: 100%;
-        flex-direction: column;
-        margin-right: 28px;
-        position: relative;
-    }
-
-    .conteudo>.left>.barra-menu-meio {
-        display: flex;
-        border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-        border-radius: 3px;
-        margin-bottom: 24px;
-        margin-top: 0;
-        padding: 16px 0;
-        align-items: stretch;
-        height: 118px;
-        width: 100%;
-        justify-content: space-between;
-        outline: 0;
-        overflow-y: hidden;
-        background: #ffffff;
-        padding-right: 16px;
-    }
-
-    .conteudo>.left>.barra-menu-meio>.stories {
-        display: flex;
-        width: 100%;
-        height: 100%;
-    }
-
-    .conteudo>.left>.barra-menu-meio>.stories>ul {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        color: #262626;
-    }
-
-    .conteudo>.left>.barra-menu-meio>.stories>ul>li {
-        list-style: none;
-        color: #fff;
-        margin-right: 12px;
-        align-items: center;
-        color: #262626;
-    }
-
-    .conteudo>.left>.barra-menu-meio>.stories>ul>li>img {
-        height: 56px;
-        width: 56px;
-        border-radius: 50%;
-    }
-
-    .conteudo>.left>.feedpost>li>.post {
-        align-items: center;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-        border-radius: 3px;
-        background: #ffffff;
-        padding: 0px 16px;
-    }
-
-    .post-esquerdo,
-    .post-direito {
-        display: flex;
-        align-items: center;
-    }
-
-    .conteudo>.left>.feedpost>li>.post>.post-esquerdo>ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    .conteudo>.left>.feedpost>li>.post>.post-esquerdo>ul>li {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        border-bottom: 1px solid #eee;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 0;
-    }
-
-    .conteudo>.left>.feedpost>li>.post>.post-esquerdo>ul>li>img {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-    }
-
-    .conteudo>.left>.feedpost>li>.post>.post-esquerdo>ul>li>a {
-        padding: 10px 0;
-        color: #262626;
-        text-decoration: none;
-        margin: 10px;
-    }
-
-    .conteudo>.left>.feedpost>li>img {
-        width: 614px;
-        height: 614px;
-    }
-
-    .feedpost>li>.descricao {
-        display: flex;
-        align-items: center;
-        padding-right: 16px;
-        list-style: none;
-        justify-content: space-between;
-    }
-
-    .feedpost>li>.descricao-esquerda>ul>li>.svg2 {
-        margin: 0 10px;
-    }
-
-    .conteudo>.left>.feedpost>li>.abcd>.comentario {
-        margin-bottom: 60px;
-    }
-
-    .conteudo>.left>.feedpost>li>.abcd>.quemcurtiu>.fotocurtida>img {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-    }
-
-    .conteudo>.right {
-        width: 100%;
-        position: fixed;
-        top: 88px;
-        width: 100%;
-        left: 934px;
-        max-width: 293px;
-        margin: 0 0 12px -16px;
-        margin-left: 0px;
-        align-items: stretch;
-    }
-
-    .conteudo>.right>ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    .conteudo>.right>ul>li {
-        list-style: none;
-        margin: 0;
-        padding: 20px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .conteudo>.right>ul>li>img {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-    }
-
-    .conteudo>.right>ul>li>div {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .conteudo>.right>ul>li>button {
-        background: #fafbfc;
-        border: solid 0px;
-        padding: 8px 15px;
-        color: #0095f6;
-        font-weight: bold;
-    }
-
-    .conteudo>.right>.sugcor {
-        justify-content: space-between;
-        display: flex;
-    }
-
-    .conteudo>.right>.sugcor>span {
-        color: rgba(var(--f52, 142, 142, 142), 1);
-        font-weight: bold;
-    }
-
-    .conteudo>.right>.sugestao1 {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 12px;
-    }
-
-    .conteudo>.right>.sugestao1>ul {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    .conteudo>.right>.sugestao1>ul>li {
-        list-style-type: none;
-        margin: 0;
-        padding: 20px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 14px;
-        padding-bottom: 8px;
-        padding-top: 8px;
-    }
-
-    .conteudo>.right>.sugestao1>ul>li>div {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .conteudo>.right>.sugestao1>ul>li>img {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-    }
-
-    .conteudo>.right>.sugestao1>ul>li>button {
-        background: #fafbfc;
-        border: solid 0px;
-        padding: 8px 15px;
-        color: #0095f6;
-        font-weight: bold;
-    }
-
-    .conteudo>.right>.termos {
-        max-width: 100%;
-        list-style: none;
-        justify-content: space-between;
-        display: flex;
-        align-items: center;
-        min-width: 876px;
-        margin-right: 0px;
-    }
-
-    .conteudo>.right>.termos>ul {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        max-width: 100%;
-        min-width: 876px;
-        margin-right: 0px;
-    }
-
-    .conteudo>.right>.termos>ul>li {
-        list-style: none;
-        max-width: 100%;
-        margin-right: 0 10px;
-    }
-</style>
-
 <body>
-    <div id="instagram">
-        <div class="barra-menu-topo">
-            <div class="esquerda">
-                <img src="https://minutoligado.com.br/wp-content/uploads/2012/12/Instagram-Logo.png"></img>
-            </div>
+  <div id="instagram">
+    <div class="barra-menu-topo">
+      <div class="bmtesquerda">
+        <img src="https://minutoligado.com.br/wp-content/uploads/2012/12/Instagram-Logo.png"></img>
+      </div>
 
-            <div class="meio">
-                <input class="pesquisar" type="text" autocapitalize="none" placeholder="Pesquisar" value="">
-            </div>
+      <div class="bmtmeio">
+        <input placeholder="Pesquisar">
+      </div>
 
-            <div class="direita">
-                <svg aria-label="Página inicial" class="homepage" fill="#262626" height="22" viewBox="0 0 48 48"
-                    width="22">
-                    <path
-                        d="M45.5 48H30.1c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2.1-4.6-4.6-4.6s-4.6 2.1-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.6-.6 2.1 0l21.5 21.5c.3.3.4.7.4 1.1v23.5c.1.8-.6 1.5-1.4 1.5z">
-                    </path>
-                </svg>
+      <div class="bmtdireito">
+        <svg aria-label="Página inicial" class="homepage" fill="#262626" height="22" viewBox="0 0 48 48" width="22">
+          <path
+            d="M45.5 48H30.1c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2.1-4.6-4.6-4.6s-4.6 2.1-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.6-.6 2.1 0l21.5 21.5c.3.3.4.7.4 1.1v23.5c.1.8-.6 1.5-1.4 1.5z">
+          </path>
+        </svg>
 
-                <svg aria-label="Messenger" class="inbox" fill="#262626" height="22" viewBox="0 0 48 48" width="22">
-                    <path
-                        d="M36.2 16.7L29 22.2c-.5.4-1.2.4-1.7 0l-5.4-4c-1.6-1.2-3.9-.8-5 .9l-6.8 10.7c-.7 1 .6 2.2 1.6 1.5l7.3-5.5c.5-.4 1.2-.4 1.7 0l5.4 4c1.6 1.2 3.9.8 5-.9l6.8-10.7c.6-1.1-.7-2.2-1.7-1.5zM24 1C11 1 1 10.5 1 23.3 1 30 3.7 35.8 8.2 39.8c.4.3.6.8.6 1.3l.2 4.1c0 1 .9 1.8 1.8 1.8.2 0 .5 0 .7-.2l4.6-2c.2-.1.5-.2.7-.2.2 0 .3 0 .5.1 2.1.6 4.3.9 6.7.9 13 0 23-9.5 23-22.3S37 1 24 1zm0 41.6c-2 0-4-.3-5.9-.8-.4-.1-.8-.2-1.3-.2-.7 0-1.3.1-2 .4l-3 1.3V41c0-1.3-.6-2.5-1.6-3.4C6.2 34 4 28.9 4 23.3 4 12.3 12.6 4 24 4s20 8.3 20 19.3-8.6 19.3-20 19.3z">
-                    </path>
-                </svg>
+        <svg aria-label="Messenger" class="inbox" fill="#262626" height="22" viewBox="0 0 48 48" width="22">
+          <path
+            d="M36.2 16.7L29 22.2c-.5.4-1.2.4-1.7 0l-5.4-4c-1.6-1.2-3.9-.8-5 .9l-6.8 10.7c-.7 1 .6 2.2 1.6 1.5l7.3-5.5c.5-.4 1.2-.4 1.7 0l5.4 4c1.6 1.2 3.9.8 5-.9l6.8-10.7c.6-1.1-.7-2.2-1.7-1.5zM24 1C11 1 1 10.5 1 23.3 1 30 3.7 35.8 8.2 39.8c.4.3.6.8.6 1.3l.2 4.1c0 1 .9 1.8 1.8 1.8.2 0 .5 0 .7-.2l4.6-2c.2-.1.5-.2.7-.2.2 0 .3 0 .5.1 2.1.6 4.3.9 6.7.9 13 0 23-9.5 23-22.3S37 1 24 1zm0 41.6c-2 0-4-.3-5.9-.8-.4-.1-.8-.2-1.3-.2-.7 0-1.3.1-2 .4l-3 1.3V41c0-1.3-.6-2.5-1.6-3.4C6.2 34 4 28.9 4 23.3 4 12.3 12.6 4 24 4s20 8.3 20 19.3-8.6 19.3-20 19.3z">
+          </path>
+        </svg>
 
-                <svg aria-label="Encontrar pessoas" class="findpeople" fill="#262626" height="22" viewBox="0 0 48 48"
-                    width="22">
-                    <path clip-rule="evenodd"
-                        d="M24 0C10.8 0 0 10.8 0 24s10.8 24 24 24 24-10.8 24-24S37.2 0 24 0zm0 45C12.4 45 3 35.6 3 24S12.4 3 24 3s21 9.4 21 21-9.4 21-21 21zm10.2-33.2l-14.8 7c-.3.1-.6.4-.7.7l-7 14.8c-.3.6-.2 1.3.3 1.7.3.3.7.4 1.1.4.2 0 .4 0 .6-.1l14.8-7c.3-.1.6-.4.7-.7l7-14.8c.3-.6.2-1.3-.3-1.7-.4-.5-1.1-.6-1.7-.3zm-7.4 15l-5.5-5.5 10.5-5-5 10.5z"
-                        fill-rule="evenodd"></path>
-                </svg>
+        <svg aria-label="Encontrar pessoas" class="findpeople" fill="#262626" height="22" viewBox="0 0 48 48"
+          width="22">
+          <path clip-rule="evenodd"
+            d="M24 0C10.8 0 0 10.8 0 24s10.8 24 24 24 24-10.8 24-24S37.2 0 24 0zm0 45C12.4 45 3 35.6 3 24S12.4 3 24 3s21 9.4 21 21-9.4 21-21 21zm10.2-33.2l-14.8 7c-.3.1-.6.4-.7.7l-7 14.8c-.3.6-.2 1.3.3 1.7.3.3.7.4 1.1.4.2 0 .4 0 .6-.1l14.8-7c.3-.1.6-.4.7-.7l7-14.8c.3-.6.2-1.3-.3-1.7-.4-.5-1.1-.6-1.7-.3zm-7.4 15l-5.5-5.5 10.5-5-5 10.5z"
+            fill-rule="evenodd"></path>
+        </svg>
 
-                <svg aria-label="Feed de atividades" class="activityfeed" fill="#262626" height="22" viewBox="0 0 48 48"
-                    width="22">
-                    <path
-                        d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z">
-                    </path>
-                </svg>
-                <img class="avatar-neto112" src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-
-            </div>
-        </div>
-
-        <div class="conteudo">
-            <div class="left">
-
-                <div class="barra-menu-meio">
-                    <button>></button>
-                    <div class="stories">
-                        <ul>
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-
-                            <li>
-                                <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                                <div>cristiano</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <ul class="feedpost"></ul>
-            </div>
-
-            <div class="right">
-                <ul>
-                    <li>
-                        <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                        <div>
-                            <strong>netoo112</strong>
-                            <span>Cristiano Rasweiler Neto</span>
-                        </div>
-                        <button>Mudar</button>
-                    </li>
-                </ul>
-
-                <div class="sugcor">
-                    <span>Sugestões para você</span> Ver tudo
-                </div>
-
-                <div class="sugestao1">
-                    <ul>
-                        <li>
-                            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                            <div>
-                                <strong>mks_sistemas</strong>
-                                <span>Seguido(a) por jeffgueths</span>
-                            </div>
-                            <button>Seguir</button>
-                        </li>
-
-                        <li>
-                            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                            <div>
-                                <strong>nath_silva8</strong>
-                                <span>Segue você</span>
-                            </div>
-                            <button>Seguir</button>
-                        </li>
-
-                        <li>
-                            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                            <div>
-                                <strong>propellinho</strong>
-                                <span>seguido(a) por bianca.calza</span>
-                            </div>
-                            <button>Seguir</button>
-                        </li>
-
-                        <li>
-                            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                            <div>
-                                <strong>belacaires</strong>
-                                <span>Seguido(a) por alepsantots</span>
-                            </div>
-                            <button>Seguir</button>
-                        </li>
-
-                        <li>
-                            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                            <div>
-                                <strong>ponte.ph</strong>
-                                <span>Seguido(a) por viniciuspassig</span>
-                            </div>
-                            <button>Seguir</button>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class=termos>
-                    <ul>
-                        <li>Sobre</li>
-                        <li>Ajuda</li>
-                        <li>Imprensa</li>
-                        <li>API</li>
-                        <li>Carreiras</li>
-                        <li>Privacidade</li>
-                        <li>Termos</li>
-                        <li>Localizações</li>
-                        <li>Principais contas</li>
-                        <li>Hashtags</li>
-                        <li>Idioma</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
+        <svg aria-label="Feed de atividades" class="activityfeed" fill="#262626" height="22" viewBox="0 0 48 48"
+          width="22">
+          <path
+            d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z">
+          </path>
+        </svg>
+        <img class="avatar-neto112" src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+      </div>
     </div>
+
+    <div class="conteudo">
+      <div class="conteudo-esquerdo">
+        <div class="stories">
+          <ul>
+            <li>
+              <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+              <div>cristiano</div>
+            </li>
+
+            <li>
+              <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+              <div>cristiano</div>
+            </li>
+
+            <li>
+              <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+              <div>cristiano</div>
+            </li>
+
+            <li>
+              <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+              <div>cristiano</div>
+            </li>
+
+            <li>
+              <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+              <div>cristiano</div>
+            </li>
+
+            <li>
+              <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+              <div>cristiano</div>
+            </li>
+
+            <li>
+              <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+              <div>cristiano</div>
+            </li>
+
+            <li>
+              <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+              <div>cristiano</div>
+            </li>
+          </ul>
+        </div>
+        <div class="feed">
+        </div>
+      </div>
+
+      <div class="conteudo-direito">
+        <ul>
+          <li>
+            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+            <div>
+              <strong>cristianorneto_</strong>
+              <span>Cristiano Rasweiler Neto</span>
+            </div>
+            <button>Mudar</button>
+          </li>
+        </ul>
+
+        <div class="sugestao">
+          <span>Sugestões para você</span> Ver tudo
+        </div>
+
+        <div class="seguir">
+          <div class="seguir-esquerdo">
+            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+            <div>
+              <strong>mks_sistemas</strong>
+              <span>Seguido(a) por jeffgueths</span>
+            </div>
+          </div>
+          <button>Seguir</button>
+        </div>
+
+        <div class="seguir">
+          <div class="seguir-esquerdo">
+            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+            <div>
+              <strong>nath_silva8</strong>
+              <span>Segue você</span>
+            </div>
+          </div>
+          <button>Seguir</button>
+        </div>
+
+        <div class="seguir">
+          <div class="seguir-esquerdo">
+            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+            <div>
+              <strong>propellinho</strong>
+              <span>seguido(a) por bianca.calza</span>
+            </div>
+          </div>
+          <button>Seguir</button>
+        </div>
+
+        <div class="seguir">
+          <div class="seguir-esquerdo">
+            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+            <div>
+              <strong>belacaires</strong>
+              <span>Seguido(a) por alepsantots</span>
+            </div>
+          </div>
+          <button>Seguir</button>
+        </div>
+
+        <div class="seguir">
+          <div class="seguir-esquerdo">
+            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
+            <div>
+              <strong>ponte.ph</strong>
+              <span>Seguido(a) por viniciuspassig</span>
+            </div>
+          </div>
+          <button>Seguir</button>
+        </div>
+
+        <div class=termos>
+          <span>Sobre</span>
+          <span>Ajuda</span>
+          <span>Imprensa</span>
+          <span>API</span>
+          <span>Carreiras</span>
+          <span>Privacidade</span>
+          <span>Termos</span>
+          <span>Localizações</span>
+          <span>Principais contas</span>
+          <span>Hashtags</span>
+          <span>Idioma</span>
+          <div>
+            © 2021 INSTAGRAM DO FACEBOOK
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
-<script>
-    const feed = [
-        {
-            nome: "gi.almerindo",
-            foto: "https://avatars.githubusercontent.com/u/79769515?v=4",
-            curtido: "augustawillrich",
-            texto: "#tbt 👑👑Eu sempre achei elas parecidas mas uma é rainha de lá e outra aqui do lado de dentro 💛! Quanta saudade, vó amada!",
-            comentarista: "heloisyin93",
-            PostouMinutos: 19
-        },
-        {
-            nome: "ruiter_trader",
-            foto: "https://avatars.githubusercontent.com/u/79769515?v=4",
-            curtido: "investidor",
-            texto: "JA REFLETIU SOBRE ISSO?! #analisetecnica #swingtrading #swingtrader #daytrade #daytraderbrasil #rendavariavel...",
-            comentarista: "fabioholder",
-            PostouMinutos: 23
-        },
-        {
-            nome: "sejaumapessoamelhor",
-            foto: "https://avatars.githubusercontent.com/u/79769515?v=4",
-            curtido: "luanaoliveira",
-            texto: "Quantas vezes você já machucou alguém — ou alguém te machucou — por palavras ditas nos piores momentos?...",
-            comentarista: "andretorrespinto",
-            PostouMinutos: 33
-        },
-    ]
-
-    const feedpostDiv = document.getElementsByClassName("feedpost")[0];
-
-    feedpostDiv.innterHTML = feed.map(repos => (
-        `
-        <li>
-            <div class="post">
-                <div class="post-esquerdo">
-                    <ul>
-                        <li>
-                            <img src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                            <a class="gizelle" href="/gi.almerindo/"
-                                tabindex="0"><strong>${feeds.nome}</strong></a>
-                        </li>
-                    </ul>
-                </di
-                <div class="post-direito">
-                    <svg aria-label="Mais opções" class="_8-yf5 " fill="#262626" height="16"
-                        viewBox="0 0 48 48" width="16">
-                        <circle clip-rule="evenodd" cx="8" cy="24" fill-rule="evenodd" r="4.5"></circle>
-                        <circle clip-rule="evenodd" cx="24" cy="24" fill-rule="evenodd" r="4.5"></circle>
-                        <circle clip-rule="evenodd" cx="40" cy="24" fill-rule="evenodd" r="4.5"></circle>
-                    </svg>
-                </div>
-            </div>
-            <img>${feeds.foto}</img>
-            <div class=descricao>
-                <div class="descricao-esquerda">
-                    <ul>
-                        <li>
-                            <svg aria-label="Curtir" class="svg1" fill="#262626" height="24"
-                                viewBox="0 0 48 48" width="24">
-                            </svg>
-                            <svg aria-label="Comentar" class="svg2" fill="#262626" height="24"
-                                viewBox="0 0 48 48" width="24">
-                                <path clip-rule="evenodd"
-                                    d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
-                                    fill-rule="evenodd"></path>
-                            </svg>
-                            <svg aria-label="Compartilhar publicação" class="svg3" fill="#262626"
-                                height="24" viewBox="0 0 48 48" width="24">
-                            </svg>
-                        </li>
-                    </ul>
-                </div>
-                <div class="descricao-direita">
-                    <svg aria-label="Salvar" class="svg4" fill="#262626" height="24" viewBox="0 0 48 48"
-                        width="24">
-                    </svg>
-                </div>
-            </div>
-            <div class="abcd" href="/p/CPGeQM9jvpCe6h60DNHC3wqtgmUXoeGAx1YC0E0/liked_by/">
-                <div class="quemcurtiu">
-                    <div class="fotocurtida"><img
-                            src="https://avatars.githubusercontent.com/u/79769515?v=4"></img>
-                        <span></span><strong>
-                            Curtido</strong>
-                        por
-                        <strong><a class="1">${feeds.curtido}</a></strong>
-                        e
-                        <strong><a class="zV_Nj" tabindex="0">outras 17 pessoas</a></strong>
-                        </span>
-                    </div>
-                    <div>
-                        <strong><a class="FPmhX notranslate MBL3Z">gi.almerindo</a></strong>
-                        <a class=" xil3i">#tbt</a>${feeds.texto}
-                        <button class="sXUSN">mais</button>
-                    </div>
-                    <div>
-                        <strong><span class="Jv7Aj mArmR MqpiF  "><a
-                                    class="FPmhX notranslate MBL3Z">${feeds.comentarista}</a></span></strong>
-                        <span>😢😢😢😢😢 quanta saudade minha eterna vozinha ❤️</span>
-                    </div>
-                    <svg aria-label="Curtir" class="_8-yf5 " fill="#262626" height="12" viewBox="0 0 48 48"
-                        width="12">
-                    </svg>
-            <div>há ${feeds.PostouMinutos} minutos</div
-                        <div class=comentario><svg aria-label="Emoji" class="_8-yf5 " fill="#262626" height="24"
-                                viewBox="0 0 48 48" width="24">
-                            </svg>
-                            <textarea placeholder="Adicione um comentário..." class="Ypffh" autocomplete="off"
-                                autocorrect="off"></textarea>
-                            <button class="sqdOP yWX7d    y3zKF     " disabled=""
-                                type="submit">Publicar</button>
-                        </div>
-                    </div>
-                </div>
-        </li>
-`
-    ));
-</script>
+<script src="./script.js"></script>
 
 </html>
